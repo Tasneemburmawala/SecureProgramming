@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+          rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">Get the Output File</h3>
+      </div>
+      <hr/>
+      <div>
+      
+      <form action="{{ url_for('outputfile') }}" method="GET" enctype="multipart/form-data">
+        
+        <input type="submit" value="Get the OutputFile">
+      </form>
+	  <form action="{{ url_for('logout') }}" method="POST" enctype="multipart/form-data">
+        
+        <input type="submit" value="Logout">
+		
+      </form>
+      </div>
+      <div>
+	  <table border="1">
+             
+        {% set count = 0 %}
+          
+    {% for detail in filename	%}
+        <tr>
+		<td> {{detail}} <td>
+        <td>{{fileflawcontentt[count]}}</td>
+        <td>{{fileratcontentt[count]}}</td>
+        </tr>
+
+		 {% set count = count + 1 %}
+	{% endfor %}
+            </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
